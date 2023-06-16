@@ -1,0 +1,23 @@
+{
+    "ok": "Ok",
+    "login.userName": "Usuario",
+    "login.password": "Contraseña",
+    "login.userPlaceholder": "Escribe tu usuario",
+    "login.passPlaceholder": "Digita tu contraseña",
+    "requiredInput": "Campo obligatorio",
+    "modal.confirmSubtitle": "Guardar información",
+    "modal.confirmTitle": "Estas seguro de guardar?",
+    "modal.okText": "Continuar",
+    "modal.cancelText": "Cancelar",
+
+    "product.title": "Titulo",
+    "product.description": "Descripcion",
+    "product.image": "Imagen",
+    "product.price": "Precio",
+    "product.category": "Categoria",
+    "product.titlePlaceholder": "Escribe el Titulo",
+    "product.descPlaceholder": "Escribe la descripcion del producto",  
+    "product.imagPlaceholder": "Ingrese url Imagen",
+    "product.pricePlaceholder": "Digita el precio",  
+    "product.catPlaceholder": "Seleccione una Categoria"
+  }
