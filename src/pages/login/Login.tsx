@@ -125,6 +125,7 @@ const Login: React.FC = () => {
                   }}
                   render={({ field }) => (
                     <TextField
+                      autoComplete="off"
                       fullWidth
                       margin="normal"
                       {...field}
@@ -149,6 +150,7 @@ const Login: React.FC = () => {
                   render={({ field }) => (
                     <TextField
                       fullWidth
+                      autoComplete="off"
                       margin="normal"
                       {...field}
                       type={showPassword ? 'text' : 'password'}
