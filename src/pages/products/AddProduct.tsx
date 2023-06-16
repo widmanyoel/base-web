@@ -47,20 +47,20 @@ const AddProduct: React.FC = () => {
     const [category, setCategory] = useState('');
     const { data: categoryData = [], isLoading: categoryLoading, error: categoryError } = useGetCategoriesQuery({});
     const [addProduct, { isLoading, isError, isSuccess }] = useAddProductsMutation();
-    const [price, setPrice] = useState('');
+    //const [price, setPrice] = useState('');
 
-    const handlePriceChange = (event: any) => {
-        const value = event.target.value;
-        if (!isNaN(value)) { // asegurarse que el valor es un número
-            setPrice(value);
-        }
-    };
+    // const handlePriceChange = (event: any) => {
+    //     const value = event.target.value;
+    //     if (!isNaN(value)) { // asegurarse que el valor es un número
+    //         setPrice(value);
+    //     }
+    // };
 
     const handleSubmitForm = (data: Inputs) => {
         console.log(data);
         addProduct(data);
     }
-   
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -84,6 +84,9 @@ const AddProduct: React.FC = () => {
                                 Agregar Producto
                             </Typography>
                         </Stack>
+                        <Box sx={{ marginLeft: "auto" }} >
+                            <Button variant="outlined" color="error" size="medium" href={`/products`}>Cancelar</Button>
+                        </Box>
                     </Container>
                 </Box>
                 <form
@@ -127,10 +130,10 @@ const AddProduct: React.FC = () => {
                                                 />
                                             )}
                                         />
-                                      
+
                                     </Grid>
                                     <Grid item xs>
-                                    <Controller
+                                        <Controller
                                             control={control}
                                             name={productConstants.PROD_IMAG}
                                             rules={{
@@ -153,12 +156,13 @@ const AddProduct: React.FC = () => {
                                                 />
                                             )}
                                         />
-                                       
+
                                     </Grid>
                                     <Grid item xs>
-                                        <FormControl sx={{ width: 300 }}>
+                                        <FormControl fullWidth>
                                             <InputLabel>Categoria</InputLabel>
                                             <Select
+
                                                 label="Categoria"
                                                 variant="outlined"
                                                 value={category}
@@ -175,7 +179,7 @@ const AddProduct: React.FC = () => {
                                         </FormControl >
                                     </Grid>
                                     <Grid item xs>
-                                    <Controller
+                                        <Controller
                                             control={control}
                                             name={productConstants.PROD_PRICE}
                                             rules={{
@@ -192,18 +196,18 @@ const AddProduct: React.FC = () => {
                                                     id={productConstants.PROD_PRICE}
                                                     label={t('price')}
                                                     variant="outlined"
-                                                    value={price}
-                                                    onChange={handlePriceChange}
+                                                    //value={price}
+                                                    //onChange={handlePriceChange}
                                                     placeholder={t('pricePlaceholder')}
                                                     error={!!errors[productConstants.PROD_PRICE]}
                                                     helperText={errors[productConstants.PROD_PRICE]?.message}
                                                 />
                                             )}
                                         />
-                                        
+
                                     </Grid>
                                     <Grid item xs>
-                                    <Controller
+                                        <Controller
                                             control={control}
                                             name={productConstants.PROD_DESC}
                                             rules={{
@@ -220,14 +224,14 @@ const AddProduct: React.FC = () => {
                                                     margin="normal"
                                                     {...field}
                                                     id={productConstants.PROD_DESC}
-                                                    label={t('description')}                                                    
+                                                    label={t('description')}
                                                     placeholder={t('descPlaceholder')}
                                                     error={!!errors[productConstants.PROD_DESC]}
                                                     helperText={errors[productConstants.PROD_DESC]?.message}
                                                 />
                                             )}
                                         />
-                                       
+
                                     </Grid>
                                     <Grid item xs>
                                         <Button variant="contained" fullWidth type="submit" disabled={isLoading}>

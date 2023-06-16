@@ -9,7 +9,7 @@ import ProgresBar from "../../components/progresbar";
 
 
 const theme = createTheme();
-const UpdateProduct: React.FC = () => {  
+const UpdateProduct: React.FC = () => {
 
     const { id } = useParams();
     const { data } = useDetailProductsQuery(id);
@@ -56,11 +56,11 @@ const UpdateProduct: React.FC = () => {
                 break;
         }
     };
-    
+
     const [updateProduct, { isLoading, isError, isSuccess }] = useUpdateProductsMutation();
 
     if (!data) {
-        return <ProgresBar/>;
+        return <ProgresBar />;
     }
 
     const handleSubmit = async (event: any) => {
@@ -82,10 +82,10 @@ const UpdateProduct: React.FC = () => {
                         pb: 6,
                     }}
                 >
-                    <Box sx={{ marginLeft: "1500px" }} >
-                        <Button variant="outlined" size="medium" href={`/products/details/${data.id}`}>Atras</Button>
-                    </Box>
                     <Container >
+                        <Box sx={{ marginLeft: "auto" }} >
+                            <Button variant="outlined" size="medium" href={`/products`}>Ir Productos</Button>
+                        </Box>
                         <Stack
                             sx={{ pt: 0 }}
                             direction="row"
@@ -96,10 +96,13 @@ const UpdateProduct: React.FC = () => {
                                 Editar Producto
                             </Typography>
                         </Stack>
+                        <Box sx={{ marginLeft: "auto" }} >
+                            <Button variant="outlined" color="error" size="medium" href={`/products/details/${data.id}`}>Cancelar</Button>
+                        </Box>
                     </Container>
                 </Box>
-                <form 
-                onSubmit={handleSubmit}                
+                <form
+                    onSubmit={handleSubmit}
                 >
                     <Paper
                         sx={{
@@ -115,7 +118,7 @@ const UpdateProduct: React.FC = () => {
                             <Grid item xs={12} sm container>
                                 <Grid item xs container direction="column" spacing={2} >
                                     <Grid item xs>
-                                    
+
                                         <TextField fullWidth
                                             required
                                             name="title"
@@ -135,7 +138,7 @@ const UpdateProduct: React.FC = () => {
                                         <FormControl sx={{ width: 300 }}>
                                             <InputLabel>Categoria</InputLabel>
                                             <Select
-                                                label="Categoria" variant="outlined" name="category" value={category} 
+                                                label="Categoria" variant="outlined" name="category" value={category}
                                                 onChange={handleInputChange}
                                             >
                                                 <MenuItem value="">Todas las categorias</MenuItem>
@@ -177,7 +180,7 @@ const UpdateProduct: React.FC = () => {
                     </Paper>
                 </form>
             </main>
-            <Footer/>
+            <Footer />
         </ThemeProvider>
     );
 };

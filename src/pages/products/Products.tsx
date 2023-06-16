@@ -96,9 +96,7 @@ const Products: React.FC = () => {
             pb: 6,
           }}
         >
-          <Box sx={{ marginLeft: "1500px" }} >
-            <Button variant="outlined" size="medium" href={`/products/add`}>Agregar</Button>
-          </Box>
+
           <Container >
 
             <Stack
@@ -107,6 +105,7 @@ const Products: React.FC = () => {
               spacing={2}
               justifyContent="center"
             >
+              
 
               <FormControl sx={{ width: 300 }}>
 
@@ -139,6 +138,9 @@ const Products: React.FC = () => {
                   )
                 }}
               />
+              <Box sx={{ marginLeft: "auto" }} >
+                <Button variant="outlined" size="medium" href={`/products/add`}>Agregar</Button>
+              </Box>
             </Stack>
           </Container>
         </Box>
@@ -190,7 +192,7 @@ const Products: React.FC = () => {
                     <Typography>
                       {truncateText(product.description)}
                     </Typography>
-                  </CardContent>                  
+                  </CardContent>
                 </Card>
 
               </Grid>
