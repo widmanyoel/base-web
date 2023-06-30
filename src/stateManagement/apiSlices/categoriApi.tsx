@@ -1,16 +1,17 @@
 import apiSlice from './apiSlice';
-import { getCategoriesQuery } from '../queries/categoriesQueries';
+import { getCategoriesQuery, getRaitingsQuery } from '../queries/categoriesQueries';
 
 export const categoriApi = apiSlice.injectEndpoints({
   endpoints: build => ({
     getCategories: build.query(getCategoriesQuery),
+    getRaitings: build.query(getRaitingsQuery),
     
   }),
 });
 
 export const {
   useGetCategoriesQuery,
+  useGetRaitingsQuery,
 } = categoriApi
-//States
 
 export default categoriApi;

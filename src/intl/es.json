@@ -15,9 +15,11 @@
     "product.image": "Imagen",
     "product.price": "Precio",
     "product.category": "Categoria",
+    "product.raiting": "Raiting",
     "product.titlePlaceholder": "Escribe el Titulo",
     "product.descPlaceholder": "Escribe la descripcion del producto",  
     "product.imagPlaceholder": "Ingrese url Imagen",
     "product.pricePlaceholder": "Digita el precio",  
-    "product.catPlaceholder": "Seleccione una Categoria"
+    "product.catPlaceholder": "Seleccione una Categoria",
+    "product.raitPlaceholder": "Seleccione un Valor"
   }

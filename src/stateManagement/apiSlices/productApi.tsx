@@ -1,22 +1,22 @@
 import apiSlice from './apiSlice';
-import { addProductsMutation, deleteProductsMutation, detailProductsQuery, editProductsQuery, getProductsQuery, updateProductsMutation } from '../queries/productsQueries';
+import { addProductsMutation, deleteProductsMutation, detailProductsQuery, getCategoryProductsQuery, getProductsQuery, updateProductsMutation } from '../queries/productsQueries';
 
 export const productApi = apiSlice.injectEndpoints({
   endpoints: build => ({
-    getProducts: build.query(getProductsQuery),
-    detailProducts: build.query(detailProductsQuery),    
-    addProducts: build.mutation(addProductsMutation),
-    editProducts: build.query(editProductsQuery),
+    getProducts: build.query(getProductsQuery),//solo productos
+    getCategoryProducts: build.query(getCategoryProductsQuery),//listar productos por categoria 
+    detailProducts: build.query(detailProductsQuery), //tomar un product para detalle productos
+    addProducts: build.mutation(addProductsMutation),//para agregar productos
     updateProducts: build.mutation(updateProductsMutation),
     deleteProducts: build.mutation(deleteProductsMutation),
   }),
 });
 
 export const {
-  useGetProductsQuery, 
+  useGetProductsQuery,
+  useGetCategoryProductsQuery,
   useAddProductsMutation,
   useDetailProductsQuery,
-  useEditProductsQuery,
   useUpdateProductsMutation,
   useDeleteProductsMutation,
   

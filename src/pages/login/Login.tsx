@@ -15,9 +15,10 @@ import { useNavigate } from 'react-router-dom';
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Controller, useForm } from "react-hook-form";
 import localize, { defineLocalizeBaseKey } from "../../utils/localizer";
+import {saveToken }from "../../core/services/auth/Auth";
 
 type Inputs = {
-  username: string;
+  identifier: string;
   password: string;
 };
 
@@ -30,15 +31,16 @@ const Login: React.FC = () => {
     handleSubmit,
     control,
     formState: { errors = {} },
-  } = useForm<Inputs>({ defaultValues: { username: "", password: "" } });
+  } = useForm<Inputs>({ defaultValues: { identifier: "", password: "" } });
 
   const t = defineLocalizeBaseKey('login');
 
   const handleSubmitForm = (data: Inputs) => {
-    console.log(data);
+    //console.log(data);
     login(data)
       .unwrap()
       .then((res: any) => {
+        saveToken(res.jwt)
         setToken(JSON.stringify(res))
         navigate('/products')
       })
@@ -125,8 +127,8 @@ const Login: React.FC = () => {
                   }}
                   render={({ field }) => (
                     <TextField
-                      autoComplete="off"
                       fullWidth
+                      autoComplete="off"
                       margin="normal"
                       {...field}
                       id={userConstants.USER_NAME}
@@ -177,8 +179,8 @@ const Login: React.FC = () => {
                 </Button>
               </Box>
               <Box>
-                <p>Us: derek</p>
-                <p>pass: jklg*_56</p>
+                <p>widmanyoelb@outlook.com</p>
+                <p>95Wybg95</p>
               </Box>
               {token}
 

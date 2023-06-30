@@ -1,19 +1,25 @@
 export const endpoints = {
   user: {
-    login: '/auth/login',
-    //login: '/users',
+    login: '/auth/local',
   },
   product:
   {
-    getProducts :"/products",
+    getProducts :"/products?populate=*",
+    getProduct:"/products/:id?populate=*",
     addProducts :"/products",
     editProduct: "/products/:id",
-    detailsProduct:"/products/:id",
+    detailsProduct:"/products/:id?populate=*",
     updateProduct: "/products/:id",
     deleteProduct: "/products/:id",
+    getCategoryProducts: "/products?populate=*&filters[category][id][$eq]=:id",
   },
   categori:
   {
-    getCategories :"products/categories",
+    getCategories :"/categories",
+    getRaitings :"/raitings",
+  },
+  upload:
+  {
+    addFile :"/upload",
   }
 }

@@ -10,7 +10,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { CardMedia } from '@mui/material';
-import logoruway from '../../assets/logoruway.png';
+import logoruway from '../../assets/Amarillo.png';
 import { useNavigate } from 'react-router-dom';
 
 function Header()  {
@@ -50,7 +50,7 @@ function Header()  {
                   alt="My Image"
                   image={logoruway}                  
                   title="RuwayTech"
-                  style={{ width: '200px', height: 'auto' , marginRight:'auto' }}
+                  style={{ width: '350px', height: 'auto' , marginRight:'auto' }}
                 />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>

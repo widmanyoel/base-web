@@ -1,2 +1,2 @@
-export const USER_NAME="username"
+export const USER_NAME="identifier"
 export const PASSWORD="password"

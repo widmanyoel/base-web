@@ -1,4 +1,6 @@
 import {endpoints as ep} from '../../core/constants'
+import { getToken } from '../../core/services/auth/Auth'
+import { productDto } from '../models/product/productDto';
 
 export const getProductsQuery = {
   query: (data: any) => {
@@ -6,52 +8,64 @@ export const getProductsQuery = {
     url: ep.product.getProducts,
     data,
     method: 'GET',
+    headers: { Authorization: `Bearer ${getToken()}` },
   })},
   transformResponse: (response: any) => response,
+}
+
+//listado por categoría
+export const getCategoryProductsQuery = {
+  query:(categoryId:string) => {
+    return ({
+      url:categoryId ? ep.product.getCategoryProducts.replace(":id",categoryId):ep.product.getProducts,
+      method: 'GET',
+      headers: { Authorization: `Bearer ${getToken()}` },
+    })
+  },
+  transformResponse: (response: {data:any}) => {
+    const {data} = response;
+    console.log(data);
+    let result:string[]=[];
+    data.map( (item:any) =>{
+      result.push( item);
+
+    })
+    return result;
+  },
 }
 
 //agrear un producto
 export const addProductsMutation = {
   query: (data: any) => {
     return ({
-    url: ep.product.addProducts,    
+    url: ep.product.addProducts,   
+    data:{
+      data:data
+    },
     method: 'POST',
-    body: data
-  })},
-  transformResponse: (response: any) => response,
-  
+  })},  
 }
 
 //detalle de un producto
 export const detailProductsQuery = {
-  query: (data: any) => {
+  query: (id: string) => {
     return ({
-    url: ep.product.detailsProduct.replace(':id', data),
-    data,
+    url: ep.product.detailsProduct.replace(":id",id),
     method: 'GET',
+    headers: { Authorization: `Bearer ${getToken()}` },
   })},
-  transformResponse: (response: any) => response,
-}
-//edit de un producto
-export const editProductsQuery = {
-  query: (data: any) => {
-    return ({
-    url: ep.product.editProduct.replace(':id', data),
-    data,
-    method: 'GET',
-  })},
-  transformResponse: (response: any) => response,
+  
+  transformResponse: (response: any) => response,  
 }
 
 //update un producto
 export const updateProductsMutation = {
-  query: ({id,data}:{id:string; data: any}) => {
+  query: ({id,data}:{id:string; data: productDto}) => {
     return ({
     url: ep.product.updateProduct.replace(':id',id),
-    data,
+    data:{data:data},
     method: 'PUT',
   })},
-  transformResponse: (response: any) => response,
 }
 
 //delete un producto
@@ -60,6 +74,7 @@ export const deleteProductsMutation = {
     return ({
     url: ep.product.deleteProduct.replace(':id',id),
     method: 'DELETE',
+    headers: { Authorization: `Bearer ${getToken()}` },
   })},
   transformResponse: (response: any) => response,
 }

@@ -10,6 +10,4 @@ const rtkAxiosBaseQuery = async ({url, method = 'GET', ...restArgs} : any) => {
   }
 }
 
-
-
 export  {rtkAxiosBaseQuery}

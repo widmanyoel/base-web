@@ -11,7 +11,6 @@ const ProductsRouting = () => {
       <Routes>          
         <Route path="/products" element={<Products/>} />
         <Route path="/products/details/:id" element={<DetailsProduct/>} />
-        <Route path="/products/edit/:id" element={<AddProduct/>}/>
         <Route path="/products/update/:id" element={<UpdateProduct/>}/>
         <Route path="/products/add" element={<Navigate to="/products/add"/>}/>
       </Routes>
